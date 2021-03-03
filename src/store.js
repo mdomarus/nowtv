@@ -7,7 +7,8 @@ import { createRootReducer } from './reducers';
 
 export const history = createBrowserHistory();
 
-const initialState = {};
+const initialState = { messages: [], members: [], API: {} };
+
 const enhancers = [];
 const middleware = [thunk, routerMiddleware(history)];
 

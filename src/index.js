@@ -1,13 +1,12 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router';
-import 'sanitize.css/sanitize.css';
-
+import { render } from 'react-dom';
+import HomePage from './pages/HomePage';
+import UserPage from './pages/UserPage';
 import { store, history } from './store';
-import App from './containers/app';
-
+import 'sanitize.css/sanitize.css';
 import './index.css';
 
 const target = document.querySelector('#root');
@@ -16,7 +15,8 @@ render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Switch>
-        <Route exact path="/" render={() => <App />} />
+        <Route path="/user/:userId" render={() => <UserPage />} />
+        <Route exact path="/" render={() => <HomePage />} />
       </Switch>
     </ConnectedRouter>
   </Provider>,

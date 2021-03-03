@@ -10,3 +10,13 @@ body {
   font-size: 1rem;
   line-height: 1.5;
 }
+
+a {
+  color: inherit;
+}
+
+main {
+  padding: 1em;
+  margin: 0 auto;
+  max-width: 600px;
+}

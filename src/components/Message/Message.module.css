@@ -1,0 +1,45 @@
+.container {
+  padding: 1em 0;
+  display: flex;
+}
+
+.container:hover {
+  background-color: aliceblue;
+}
+
+.avatar {
+  max-width: 100%;
+  height: auto;
+  align-self: flex-start;
+}
+
+.data {
+  padding: 0 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  padding-top: 1em;
+  color: inherit;
+}
+
+.message {
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 50%;
+  font-style: italic;
+}
+
+.email {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.container:hover .email {
+  transition: all 0.2s ease-in;
+  visibility: visible;
+  opacity: 1;
+}
