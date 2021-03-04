@@ -18,13 +18,17 @@ Feel free to create new files to help you complete these tasks. Additional depen
 * `data` directory is a mocked-API which exposes methods to get message information and member information from a chat room.
 It has two publicly exposed functions `getMessages` and `getMembers`.
 
+This part is asking for a pagination support :)
+
 * Your tasks will be to add further logic to display and manipulate the data returned from these functions, without modifying `data/index.js`.  Code addition should be unit tested.
 
-## Tasks 
+## Tasks
 
 1. Render the list of messages from the redux store
 
 2. Display the user's email when you hover over the message - how can you achieve this in both CSS and JavaScript ?
+
+I used a CSS :hover. We could probably add an event listener for 'mouseover' but I can't see any benefit of this approach.
 
 3. Display the avatar of the user next to the message
 
@@ -32,7 +36,7 @@ It has two publicly exposed functions `getMessages` and `getMembers`.
 
 5. Sort the messages by time
 
-## Additional Tasks 
+## Additional Tasks
 
 1. How could you improve the accessibility of your website?
 
@@ -44,7 +48,11 @@ It has two publicly exposed functions `getMessages` and `getMembers`.
 
 3. Can you make sure the design of your website is responsive?
 
+It's a rather simple list, so I just centered it and added max width. It should render correctly on any reasonable screen width.
+
 4. How would you go about automating and testing your application?
+
+I added a few tests and some pseudo-code tests. This is a specific scenario when the API is already mocked, so we could simply run it in Cypress, find a specific message, simulate a click and check for the lenght of messages on the user page.
 
 ## Submission
 
