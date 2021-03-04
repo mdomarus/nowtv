@@ -19,12 +19,17 @@ const Message = ({ message: { message, timestamp, userId }, asShort = false }) =
     <div className={styles.container}>
       {!asShort && <img className={styles.avatar} src={avatarSrc} alt={fullName} />}
       <div className={styles.data}>
-        {message}
+        <div className={styles.message}>{message}</div>
         <div className={styles.timestamp}>{date}</div>
 
         {!asShort && (
           <Link to={link} className={styles.link}>
-            {fullName} {member && <span className={styles.email}> - {member.email}</span>}
+            {fullName}{' '}
+            {member && (
+              <>
+                - <span className={styles.email}>{member.email}</span>
+              </>
+            )}
           </Link>
         )}
       </div>
