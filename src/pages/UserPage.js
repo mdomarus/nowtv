@@ -9,7 +9,11 @@ const UserPage = () => {
   const history = useHistory();
 
   const member = useSelector(({ members }) => members.find((member) => member.id === userId));
-  if (!member) history.push('/');
+
+  if (!member) {
+    history.push('/');
+    return null;
+  }
 
   const messages = useSelector((state) => state.messages.filter((message) => message.userId === userId));
   const { firstName, lastName } = member;
