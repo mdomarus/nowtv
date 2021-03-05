@@ -1,6 +1,6 @@
 .container {
-  padding: 1em 0;
   display: flex;
+  padding: 1em 0;
 }
 
 .container:hover {
@@ -8,25 +8,27 @@
 }
 
 .avatar {
-  max-width: 100%;
-  height: auto;
   align-self: flex-start;
+  height: auto;
+  max-width: 100%;
 }
 
 .data {
-  padding: 0 1em;
   display: flex;
   flex-direction: column;
+  padding: 0 1em;
+  width: 100%;
 }
 
 .link {
-  padding-top: 1em;
   color: inherit;
+  padding-top: 1em;
 }
 
 .timestamp {
-  font-size: 50%;
+  font-size: 75%;
   font-style: italic;
+  text-align: right;
 }
 
 .email {
@@ -35,7 +37,7 @@
 }
 
 .container:hover .email {
+  opacity: 1;
   transition: all 0.2s ease-in;
   visibility: visible;
-  opacity: 1;
 }

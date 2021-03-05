@@ -75,9 +75,7 @@ describe('Message', () => {
 
   it('should render full name', () => {
     const wrapper = getWrapper();
-    expect(wrapper.find('a.link').text()).toEqual(
-      `${members[1].firstName} ${members[1].lastName} - ${members[1].email}`
-    );
+    expect(wrapper.find('a.link').text()).toEqual(`${members[1].firstName} ${members[1].lastName}`);
   });
 
   it('should render correct link', () => {

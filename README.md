@@ -40,6 +40,12 @@ I used a CSS :hover. We could probably add an event listener for 'mouseover' but
 
 1. How could you improve the accessibility of your website?
 
+  * app is already well structured
+  * elements are built of semantic elements
+  * text size and color/contrasts are correct
+  * images have alt texts
+  * app can be easily navigated with the keyboard
+
 2. Enhance the solution by rendering the user's name under the message. Once clicked it will take you through to a grid page showing all the user's messages:
 
     * Display the title of the message

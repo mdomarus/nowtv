@@ -16,24 +16,24 @@ const Message = ({ message: { message, timestamp, userId }, asShort = false }) =
   const link = `/user/${member ? member.id : '#'}`;
 
   return (
-    <div className={styles.container}>
+    <li className={styles.container}>
       {!asShort && <img className={styles.avatar} src={avatarSrc} alt={fullName} />}
       <div className={styles.data}>
         <div className={styles.message}>{message}</div>
-        <div className={styles.timestamp}>{date}</div>
+        <time dateTime={timestamp} className={styles.timestamp}>
+          {date}
+        </time>
 
         {!asShort && (
-          <Link to={link} className={styles.link}>
-            {fullName}{' '}
-            {member && (
-              <>
-                - <span className={styles.email}>{member.email}</span>
-              </>
-            )}
-          </Link>
+          <>
+            <Link to={link} className={styles.link}>
+              {fullName}
+            </Link>
+            {member && <span className={styles.email}>{member.email}</span>}
+          </>
         )}
       </div>
-    </div>
+    </li>
   );
 };
 

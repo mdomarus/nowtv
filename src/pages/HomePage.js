@@ -20,9 +20,12 @@ const HomePage = () => {
 
   return (
     <main>
-      {messages.map((message) => (
-        <Message message={message} key={message.id} />
-      ))}
+      <h1>Home page</h1>
+      <ul>
+        {messages.map((message) => (
+          <Message message={message} key={message.id} />
+        ))}
+      </ul>
     </main>
   );
 };

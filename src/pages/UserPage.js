@@ -21,10 +21,12 @@ const UserPage = () => {
   return (
     <main>
       <Link to="/">Go back</Link>
-      <h2>{`${firstName} ${lastName}`}</h2>
-      {messages.map((message) => (
-        <Message message={message} key={message.id} asShort />
-      ))}
+      <h1>{`${firstName} ${lastName}`}</h1>
+      <ul>
+        {messages.map((message) => (
+          <Message message={message} key={message.id} asShort />
+        ))}
+      </ul>
     </main>
   );
 };
