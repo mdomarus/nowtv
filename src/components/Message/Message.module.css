@@ -10,7 +10,9 @@
 .avatar {
   align-self: flex-start;
   height: auto;
-  max-width: 100%;
+  min-height: 100px;
+  min-width: 100px;
+  width: 100px;
 }
 
 .data {

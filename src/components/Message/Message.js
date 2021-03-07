@@ -14,7 +14,7 @@ const Message = ({ message: { message, timestamp }, member, asShort = false }) =
 
   return (
     <li className={styles.container}>
-      {!asShort && <img className={styles.avatar} src={avatarSrc} alt={fullName} />}
+      {!asShort && <img className={styles.avatar} src={avatarSrc} alt={fullName} loading="lazy" />}
       <div className={styles.data}>
         <div className={styles.message}>{message}</div>
         <time dateTime={timestamp} className={styles.timestamp}>
