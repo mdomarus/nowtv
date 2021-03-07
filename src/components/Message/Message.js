@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Message.module.css';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const Message = ({ message: { message, timestamp, userId }, asShort = false }) => {
-  const member = useSelector(({ members = [] }) => members.find(({ id }) => id === userId));
-
+const Message = ({ message: { message, timestamp }, member, asShort = false }) => {
   const date = new Date(timestamp).toLocaleString();
 
   const fullName = member ? `${member.firstName} ${member.lastName}` : '';
@@ -37,13 +34,20 @@ const Message = ({ message: { message, timestamp, userId }, asShort = false }) =
   );
 };
 
-export default Message;
+export default memo(Message);
 
 Message.propTypes = {
   message: PropTypes.shape({
     message: PropTypes.string,
     timestamp: PropTypes.string,
     userId: PropTypes.string,
+  }),
+  member: PropTypes.shape({
+    avatar: PropTypes.string,
+    email: PropTypes.string,
+    firstName: PropTypes.string,
+    id: PropTypes.string,
+    lastName: PropTypes.string,
   }),
   asShort: PropTypes.bool,
 };

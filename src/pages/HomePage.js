@@ -16,16 +16,19 @@ const HomePage = () => {
   if (messages.length === 0) dispatch(fetchMessages());
   if (members.length === 0) dispatch(fetchMembers());
 
-  if (messages.length < 1) return <main>Loading...</main>;
+  const dataFetched = messages.length > 0 && members.length > 0;
 
   return (
     <main>
       <h1>Home page</h1>
-      <ul>
-        {messages.map((message) => (
-          <Message message={message} key={message.id} />
-        ))}
-      </ul>
+      {!dataFetched && 'Loading...'}
+      {dataFetched && (
+        <ul>
+          {messages.map((message) => (
+            <Message message={message} member={members.find(({ id }) => id === message.userId)} key={message.id} />
+          ))}
+        </ul>
+      )}
     </main>
   );
 };
