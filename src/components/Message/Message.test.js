@@ -9,30 +9,20 @@ import { createRootReducer } from '../../reducers';
 
 const history = createBrowserHistory();
 
-const members = [
-  {
-    id: '976b3c2a-1b2d-4494-8861-eb436d51c160',
-    firstName: 'Marie',
-    lastName: 'Walker',
-    email: 'mwalkerl@yelp.com',
-    avatar: 'http://dummyimage.com/100x100.bmp/cc0000/ffffff',
-    ip: '53.83.18.66',
-  },
-  {
-    id: '16373df5-da0a-4074-8295-f916b94269f4',
-    firstName: 'Larry',
-    lastName: 'Owens',
-    email: 'lowensm@earthlink.net',
-    avatar: 'http://dummyimage.com/100x100.bmp/5fa2dd/ffffff',
-    ip: '168.43.167.194',
-  },
-];
+const member = {
+  id: '16373df5-da0a-4074-8295-f916b94269f4',
+  firstName: 'Larry',
+  lastName: 'Owens',
+  email: 'lowensm@earthlink.net',
+  avatar: 'http://dummyimage.com/100x100.bmp/5fa2dd/ffffff',
+  ip: '168.43.167.194',
+};
 
 const store = createStore(createRootReducer(history), {
-  members,
+  members: [member],
 });
 
-const sampleMessage = {
+const message = {
   id: 'b03569ae-ccbf-4975-8040-4daba638b407',
   userId: '16373df5-da0a-4074-8295-f916b94269f4',
   message: 'Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.',
@@ -43,7 +33,7 @@ const getWrapper = (asShort = false) =>
   mount(
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <Message message={sampleMessage} asShort={asShort} />
+        <Message message={message} member={member} asShort={asShort} />
       </ConnectedRouter>
     </Provider>
   );
@@ -60,7 +50,7 @@ describe('Message', () => {
 
   it('should render message', () => {
     const wrapper = getWrapper();
-    expect(wrapper.find('.message').text()).toEqual(sampleMessage.message);
+    expect(wrapper.find('.message').text()).toEqual(message.message);
   });
 
   it('should render timestamp', () => {
@@ -70,17 +60,17 @@ describe('Message', () => {
 
   it('should render email', () => {
     const wrapper = getWrapper();
-    expect(wrapper.find('.email').text()).toEqual(members[1].email);
+    expect(wrapper.find('.email').text()).toEqual(member.email);
   });
 
   it('should render full name', () => {
     const wrapper = getWrapper();
-    expect(wrapper.find('a.link').text()).toEqual(`${members[1].firstName} ${members[1].lastName}`);
+    expect(wrapper.find('a.link').text()).toEqual(`${member.firstName} ${member.lastName}`);
   });
 
   it('should render correct link', () => {
     const wrapper = getWrapper();
-    expect(wrapper.find(`a[href="/user/${members[1].id}"]`)).toHaveLength(1);
+    expect(wrapper.find(`a[href="/user/${member.id}"]`)).toHaveLength(1);
   });
 
   it('should omit image and name in short mode', () => {
